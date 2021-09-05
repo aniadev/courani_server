@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
   //simple validation
   if (!username || !password) {
     return res
-      .status(400)
+      .status(204)
       .json({ success: false, message: "Missing username / password" });
   }
   try {
@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
     const user = await User.findOne({ username });
     if (user)
       return res
-        .status(400)
+        .status(200)
         .json({ success: false, message: "Username invailid !!" });
     //All good
     hashedPassword = await argon2.hash(password);
@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     return res
-      .status(400)
+      .status(204)
       .json({ success: false, message: "Missing username / password" });
   }
   try {
@@ -67,7 +67,7 @@ router.post("/login", async (req, res) => {
     const passwordValid = await argon2.verify(userData.password, password);
     if (!passwordValid) {
       return res
-        .status(400)
+        .status(200)
         .json({ success: false, message: "Incorect username/ password" });
     }
     //All good
