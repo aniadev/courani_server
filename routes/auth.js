@@ -29,7 +29,7 @@ router.post("/register", async (req, res) => {
     const newUser = new User({ username, password: hashedPassword });
     await newUser.save();
     // user token return
-    const acessToken = jwt.sign(
+    const accessToken = jwt.sign(
       { userId: newUser._id },
       process.env.ACCESS_TOKEN_SECRET
     );
@@ -37,7 +37,7 @@ router.post("/register", async (req, res) => {
       success: true,
       message: "Created successfully!",
       username,
-      acessToken,
+      accessToken,
     });
   } catch (error) {
     console.log(error);
@@ -72,7 +72,7 @@ router.post("/login", async (req, res) => {
     }
     //All good
     // user token return
-    const acessToken = jwt.sign(
+    const accessToken = jwt.sign(
       { userId: userData._id },
       process.env.ACCESS_TOKEN_SECRET
     );
@@ -80,7 +80,7 @@ router.post("/login", async (req, res) => {
       success: true,
       message: "Login successfully!",
       username,
-      acessToken,
+      accessToken,
     });
   } catch (error) {
     console.log(error);
