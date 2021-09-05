@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const authRouter = require("./routes/auth");
 const courseRouter = require("./routes/course");
@@ -12,7 +13,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use("/api/auth", authRouter);
 app.use("/api/course", courseRouter);
 
