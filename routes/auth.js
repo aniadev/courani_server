@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
   //simple validation
   if (!username || !password) {
     return res
-      .status(204)
+      .status(200)
       .json({ success: false, message: "Missing username / password" });
   }
   try {
@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     return res
-      .status(204)
+      .status(200)
       .json({ success: false, message: "Missing username / password" });
   }
   try {
@@ -60,7 +60,7 @@ router.post("/login", async (req, res) => {
     const userData = await User.findOne({ username });
     if (!userData) {
       return res
-        .status(400)
+        .status(200)
         .json({ success: false, message: "Incorect username / password" });
     }
     //username
