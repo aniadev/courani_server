@@ -8,7 +8,7 @@ const verifyToken = require("../middlewares/verifyToken");
 // @access Private
 router.post("/create", verifyToken, async (req, res) => {
   let { title, description, url, state } = req.body;
-
+  console.log({ title, description, url, state });
   if (!title) {
     return res
       .status(200)
