@@ -46,3 +46,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTE5Y
 DELETE http://localhost:5000/api/course/6119cdd1a7682b1e4c2677c6
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTE5YmQ3NWJhYWY4ZDJmYWNhYWQwYjciLCJpYXQiOjE2MjkwNzY4ODl9.yXsC34bcL0t0RCNpxFnCctnA83t1xOSmYJfcyuV6_wk
+
+######## get public courses 
+GET https://coursani.herokuapp.com/api/public/democourses
+Content-Type: application/json
